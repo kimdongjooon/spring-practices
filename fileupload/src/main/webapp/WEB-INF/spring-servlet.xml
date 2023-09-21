@@ -10,7 +10,10 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+	<mvc:annotation-driven/> <!-- 이게 있어야 가능함 이미지. -->
+	
+	<!-- url resource mapping -->
+	<mvc:resources mapping="/images/**" location="file:/Users/kdj/mysite-uploads/" />
 	
 	<!-- viewResolver 설정  -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -31,6 +34,9 @@
 	    <!-- defaultEncoding -->
 	    <property name="defaultEncoding" value="utf-8" />
 	</bean>
+	
+	
+	
 	
 	<context:annotation-config />
 	<context:component-scan base-package="com.poscodx.fileupload.controller" />
