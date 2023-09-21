@@ -11,5 +11,6 @@
   	<module>gusetbook03</module>
   	<module>aoptest</module>
   	<module>logex</module>
+  	<module>fileupload</module>
   </modules>
 </project>
