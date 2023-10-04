@@ -49,7 +49,10 @@ public class XmlConfigTest {
 		
 		// id로 접근하여 가져오기(자동)
 		user = (User)ac.getBean("user");
-		System.out.println(user.getName());	
+		System.out.println(user.getName());
+		
+		user = (User)ac.getBean("user2");
+		System.out.println(user.getName());
 		
 		// name으로 가져오기.
 		user = (User)ac.getBean("usr");
@@ -57,8 +60,29 @@ public class XmlConfigTest {
 		
 		// Type으로 가져오기.
 		// getBean 함수로 클래스 파일가져오기.
-		user = ac.getBean(User.class);
+		// 같은 타입의 Bean이 2개이상 있으면 Type으로 가져오면 에러남. 그래서 앞에 id명시하여 가져와줄수있음.
+		user = ac.getBean("user2",User.class);
 		System.out.println(user.getName());
+		
+		// 파라미터 2개인 생성자로 된 빈 가져오기1(순서대로).
+		user = ac.getBean("user3",User.class);
+		System.out.println(user);
+		
+		// 파라미터 2개인 생성자로 된 빈 가져오기2(순서표시).
+		user = ac.getBean("user4",User.class);
+		System.out.println(user);
+		
+		// setter를 사용한 빈 가져오기1.
+		user = ac.getBean("user5",User.class);
+		System.out.println(user);
+		
+		// setter를 사용한 빈 가져오기2 : DI .
+		user = ac.getBean("user6",User.class);
+		System.out.println(user);
+		
+		// setter를 사용한 빈 가져오기3 : Collection Property(리스트) .
+		user = ac.getBean("user7",User.class);
+		System.out.println(user);
 		
 	}
 
