@@ -1,4 +1,6 @@
 [src/main/java]
+	com.poscodx.container.config.user
+		|-- AppConfig.java	
 	com.poscodx.container.user
 		|-- User.java
 		|-- Friend.java
