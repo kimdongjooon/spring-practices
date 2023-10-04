@@ -1,6 +1,9 @@
 [src/main/java]
 	com.poscodx.container.config.user
-		|-- AppConfig.java	
+		|-- AppConfig.java
+	com.poscodx.container.config.user
+		|-- CDPlayerConfig.java
+		
 	com.poscodx.container.user
 		|-- User.java
 		|-- Friend.java
@@ -9,6 +12,8 @@
 		|-- JavaConfigTest.java
 		
 	com.poscodx.container.soundsystem
+		|-- CDPlayer.java
+		|-- CompactDisc.java
 	com.poscodx.container.videosystem
 
 [src/main/resources]
@@ -18,6 +23,8 @@
 
 
 [src/test/java]
-
+	com.poscodx.container.soundsystem
+		|-- CDPlayerTest.java
+		|-- CompactDiscTest.java
 
 [src/test/resources]
