@@ -28,7 +28,7 @@ public class XmlConfigTest {
 	}
 
 	private static void testApplicationContext01() {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("com/poscodx/container/user/applicationContext01.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("com/poscodx/container/config/user/applicationContext01.xml");
 		
 		User user =null;
 		
@@ -43,7 +43,7 @@ public class XmlConfigTest {
 	}
 	
 	private static void testApplicationContext02() {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("com/poscodx/container/user/applicationContext02.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("com/poscodx/container/config/user/applicationContext02.xml");
 		
 		User user =null;
 		
@@ -87,13 +87,13 @@ public class XmlConfigTest {
 	}
 
 	private static void testBeanFactory01() {
-		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/poscodx/container/user/applicationContext01.xml"));
+		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/poscodx/container/config/user/applicationContext01.xml"));
 		User user = bf.getBean(User.class);
 		System.out.println(user.getName());
 	}
 	
 	private static void testBeanFactory02() {
-		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/poscodx/container/user/applicationContext02.xml"));
+		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/poscodx/container/config/user/applicationContext02.xml"));
 		User user = bf.getBean(User.class);
 		System.out.println(user.getName());
 	}

@@ -10,20 +10,41 @@
 	com.poscodx.container.user.test
 		|-- XmlConfigTest.java
 		|-- JavaConfigTest.java
-		
+	
+	com.poscodx.container.config.soundsystem
+		|-- CDPlayerConfig.java
 	com.poscodx.container.soundsystem
 		|-- CDPlayer.java
 		|-- CompactDisc.java
+		|-- HighSchoolRapper.java
 	com.poscodx.container.videosystem
+	
+	com.poscodx.container.config.videosystem
+		|-- DVDPlayerConfig.java
+	com.poscodx.container.videosystem
+		|-- DVDPlayer.java
+		|-- DigitalVideoDisc.java
+		|-- Avengers.java
 
 [src/main/resources]
-	com.poscodx.container.user
+	com.poscodx.container.config.videosystem
+		|-- applicationContext.xml (Auto)
+
+	com.poscodx.container.config.soundsystem
+		|-- applicationContext.xml (Auto)
+		
+	com.poscodx.container.config.user
 		|-- applicationContext01.xml (Auto)
 		|-- applicationContext02.xml (Explicit)
-
+		
+	
+		
+	
 
 [src/test/java]
 	com.poscodx.container.soundsystem
+		|-- CDPlayerXmlConfigTest.java
+		|-- CDPlayerJavaConfigTest.java
 		|-- CDPlayerTest.java
 		|-- CompactDiscTest.java
 
