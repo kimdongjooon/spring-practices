@@ -25,6 +25,10 @@
 		|-- DVDPlayer.java
 		|-- DigitalVideoDisc.java
 		|-- Avengers.java
+	com.poscodx.container.videosystem.mixing
+		|-- DVDConfig.java
+		|-- DVDPlayerConfig.java
+		|-- VideoSystemConfig.java
 
 [src/main/resources]
 	com.poscodx.container.config.videosystem
@@ -42,6 +46,10 @@
 	
 
 [src/test/java]
+	com.poscodx.container.videosystem.mixing
+		|-- DVDPlayerMixingConfigTest01.java
+		|-- DVDPlayerMixingConfigTest02.java
+	
 	com.poscodx.container.videosystem
 		|-- DVDPlayerJavaConfigTest.java
 		|-- DVDPlayerXmlConfigTest.java
