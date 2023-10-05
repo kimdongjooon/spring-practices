@@ -4,6 +4,7 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
@@ -17,14 +18,17 @@
 	<!-- 01. bean 설정: 초 간단 -->
 	<bean class="com.poscodx.container.videosystem.Avengers"/>
 	
+	
 	<!-- 02. bean 설정: id 부여하기. -->
 	<bean id="ironMan" class="com.poscodx.container.videosystem.IronMan"/>
+	
 	
 	<!-- 03. bean 설정: 생성자 리터럴 사용1 -->
 	<bean id="avengersInfiniteWar" class="com.poscodx.container.videosystem.BlankDisc">
 		<constructor-arg name="studio" value="MARVEL"/>
 		<constructor-arg name="title" value="Avenger Infinite War"/>
 	</bean>
+	
 	
 	<!-- 04. bean 설정: 생성자 리터럴 사용2(변수에 바로 기입) -->
 	<bean 
@@ -33,12 +37,94 @@
 		c:title="Avenger Endgame"
 		c:studio="MARVEL"/>
 	
+	
 	<!-- 05. bean 설정: 생성자 리터럴 사용3(인덱스 사용하기) -->
 	<bean 
 		id="avengersAgeOfUltron" 
 		class="com.poscodx.container.videosystem.BlankDisc"
 		c:_1="MARVEL"
 		c:_0="Avenger Age Of Ultron"/>
+		
+		
+	<!-- 06. bean 설정: 생성자 null argument -->
+	<bean id="avengersCaptainAmerica" class="com.poscodx.container.videosystem.BlankDisc">
+		<constructor-arg name="studio" value="MARVEL"/>
+		<constructor-arg name="title" value="Avengers Captain America"/>	
+		<constructor-arg><null/></constructor-arg>
+	</bean>
+	
+	
+	<!-- 07. bean 설정: 생성자 Collection Argument -->
+	<bean id="avengersDirectorEdition" class="com.poscodx.container.videosystem.BlankDisc">
+		<constructor-arg name="studio" value="MARVEL"/>
+		<constructor-arg name="title" value="Avengers Director Edition"/>	
+		<constructor-arg name="actors">
+			<list>
+				<value>Robert Downey Jr.</value>
+				<value>Christ Evans</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	
+	<!-- 08. bean 설정: 생성자 Wiring Collection -->
+	<bean id="avengersTriplePack" 
+		  class="com.poscodx.container.videosystem.DVDPack"
+		  c:title="Avengers Triple Pack">
+		<constructor-arg name="dvds">
+			<list>
+				<ref bean="avengersInfiniteWar"/>
+				<ref bean="avengersEndgame"/>
+				<ref bean="avengersAgeOfUltron"/>
+			</list>
+		</constructor-arg>
+	</bean>
+		
+		
+	<!-- 09. bean 설정: property 사용1 -->
+	<bean id="avengersExpansionEdition1" class="com.poscodx.container.videosystem.BlankDisc">
+		<property name="studio" value="MARVEL"/>
+		<property name="title" value="Avengers Expansion Edition1"/>
+	</bean>
+	
+	
+	<!-- 10. bean 설정: property 사용2 -->
+	<bean id="avengersExpansionEdition2" 
+		  class="com.poscodx.container.videosystem.BlankDisc"
+		  p:title="Avengers Expansion Edition2"
+		  p:studio="MARVEL">
+		<property name="actors">
+			<list>
+				<value>Robert Downey Jr.</value>
+				<value>Christ Evans</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- 11. bean 설정: property 사용3 -->
+	<util:list id="actorList">
+		<value>Robert Downey Jr.</value>
+		<value>Christ Evans</value>
+	</util:list>
+	<bean id="avengersExpansionEdition3" 
+		  class="com.poscodx.container.videosystem.BlankDisc"
+		  p:title="Avengers Expansion Edition3"
+		  p:studio="MARVEL"
+		  p:actors-ref="actorList"/>
+	
+	
+	<!-- 12. 빈 주입: 생성자 주입1 -->
+	<bean id="dvdPlayer1" class="com.poscodx.container.videosystem.DVDPlayer">
+		<constructor-arg ref="ironMan"/>
+	</bean>
+	
+	<!-- 13. 빈 주입: 생성자 주입2 -->
+	<bean 
+		id="dvdPlayer2" 
+		class="com.poscodx.container.videosystem.DVDPlayer"
+		c:dvd-ref="ironMan"/>
+		
 	
 	
 
